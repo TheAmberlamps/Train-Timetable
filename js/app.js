@@ -21,4 +21,29 @@ var firebaseConfig = {
   
   var database = firebase.database();
 
-  
+  $("#add-train-button").click(function(){
+
+    var traNam = $("#train-name-input").val().trim();
+    var traDest = $("#destination-input").val().trim();
+    var traTime = $("#train-time-input").val().trim();
+    var traNext = $("#minutes-until-input").val().trim();
+
+    var newTra = {
+
+      name: traNam,
+      destination: traDest,
+      time: traTime,
+      next: traNext
+
+    };
+
+    database.ref().push(newTra);
+
+    console.log(newTra.name);
+    console.log(newTra.destination);
+    console.log(newTra.time);
+    console.log(newTra.next);
+
+    alert("It's a new train!");
+
+  });
