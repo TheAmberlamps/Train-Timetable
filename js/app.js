@@ -21,29 +21,35 @@ var firebaseConfig = {
   
   var database = firebase.database();
 
-  $("#add-train-button").click(function(){
+    $("#add-train-btn").click(function(){
 
-    var traNam = $("#train-name-input").val().trim();
-    var traDest = $("#destination-input").val().trim();
-    var traTime = $("#train-time-input").val().trim();
-    var traNext = $("#minutes-until-input").val().trim();
+      event.preventDefault();
 
-    var newTra = {
+      console.log("pressed");
 
-      name: traNam,
-      destination: traDest,
-      time: traTime,
-      next: traNext
+      var traNam = $("#train-name-input").val().trim();
+      var traDest = $("#destination-input").val().trim();
+      var traTime = $("#train-time-input").val().trim();
+      var traNext = $("#minutes-until-input").val().trim();
 
-    };
+      var newTra = {
 
-    database.ref().push(newTra);
+        name: traNam,
+        destination: traDest,
+        time: traTime,
+        next: traNext
 
-    console.log(newTra.name);
-    console.log(newTra.destination);
-    console.log(newTra.time);
-    console.log(newTra.next);
+      };
 
-    alert("It's a new train!");
+      database.ref().push(newTra);
 
-  });
+      console.log(traNam);
+
+      console.log(newTra.name);
+      console.log(newTra.destination);
+      console.log(newTra.time);
+      console.log(newTra.next);
+
+      alert("It's a new train!");
+
+    });
