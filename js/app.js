@@ -32,8 +32,18 @@ $(document).ready(function () {
     console.log(traDest);
     console.log(traTime);
     console.log(traNext);
+
+    var oldTra = $("<tr>").append(
+      $("<td>").text(traNam),
+      $("<td>").text(traDest),
+      $("<td>").text(traTime),
+      $("<td>").text(traNext)
+    );
+
+    $("#train-table > tbody").append(oldTra);
+
   });
-  
+
     $("#add-train-btn").click(function(event){
 
       event.preventDefault();
@@ -60,14 +70,14 @@ $(document).ready(function () {
       console.log(newTra.time);
       console.log(newTra.next);
 
-      var newRow = $("<tr>").append(
-        $("<td>").text(traNam),
-        $("<td>").text(traDest),
-        $("<td>").text(traTime),
-        $("<td>").text(traNext)
-      );
+      // var newRow = $("<tr>").append(
+      //   $("<td>").text(traNam),
+      //   $("<td>").text(traDest),
+      //   $("<td>").text(traTime),
+      //   $("<td>").text(traNext)
+      // );
 
-      $("#train-table > tbody").append(newRow);
+      // $("#train-table > tbody").append(newRow);
 
       alert("It's a new train!");
 
