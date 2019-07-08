@@ -1,12 +1,12 @@
 $(document).ready(function () {
-
+  
   // Initialize Firebase
   var firebaseConfig = {
-      apiKey: "AIzaSyDiExqaUmMa0mDauu7XFZ-Z92ivt80zwNk",
-      authDomain: "timetable-project-14470.firebaseapp.com",
-      databaseURL: "https://timetable-project-14470.firebaseio.com",
-      projectId: "timetable-project-14470",
-      storageBucket: "timetable-project-14470.appspot.com",
+    apiKey: "AIzaSyDiExqaUmMa0mDauu7XFZ-Z92ivt80zwNk",
+    authDomain: "timetable-project-14470.firebaseapp.com",
+    databaseURL: "https://timetable-project-14470.firebaseio.com",
+    projectId: "timetable-project-14470",
+    storageBucket: "timetable-project-14470.appspot.com",
       messagingSenderId: "888829465365",
       appId: "1:888829465365:web:5fd065922103743e"
     };
@@ -20,7 +20,20 @@ $(document).ready(function () {
   // var database = ...
   
   var database = firebase.database();
-
+  
+  database.ref().on("child_added", function(childSnapshot) {
+    console.log(childSnapshot.val());
+    var traNam = childSnapshot.val().name;
+    var traDest = childSnapshot.val().destination;
+    var traTime = childSnapshot.val().time;
+    var traNext = childSnapshot.val().next;
+  
+    console.log(traNam);
+    console.log(traDest);
+    console.log(traTime);
+    console.log(traNext);
+  });
+  
     $("#add-train-btn").click(function(event){
 
       event.preventDefault();
@@ -59,4 +72,6 @@ $(document).ready(function () {
       alert("It's a new train!");
 
     });
+
+
 });
