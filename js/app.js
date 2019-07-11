@@ -26,7 +26,7 @@ $(document).ready(function () {
     var traNam = childSnapshot.val().name;
     var traDest = childSnapshot.val().destination;
     var traTime = childSnapshot.val().time;
-    var traNext = childSnapshot.val().next;
+    var traNext = childSnapshot.val().next; 
   
     console.log(traNam);
     console.log(traDest);
@@ -69,15 +69,6 @@ $(document).ready(function () {
       console.log(newTra.destination);
       console.log(newTra.time);
       console.log(newTra.next);
-
-      // var newRow = $("<tr>").append(
-      //   $("<td>").text(traNam),
-      //   $("<td>").text(traDest),
-      //   $("<td>").text(traTime),
-      //   $("<td>").text(traNext)
-      // );
-
-      // $("#train-table > tbody").append(newRow);
 
       alert("It's a new train!");
 
